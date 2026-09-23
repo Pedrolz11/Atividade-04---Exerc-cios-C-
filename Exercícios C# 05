@@ -1,0 +1,251 @@
+Lista 05 - Ternário
+
+1- a) using System;
+ 
+// Programa que verifica se um número é par ou ímpar usando o operador ternário
+class Program
+{
+    static void Main(string[] args)
+    {
+        int numero;
+ 
+        Console.Write("Digite um número inteiro: ");
+        numero = Convert.ToInt32(Console.ReadLine());
+ 
+        // Operador ternário: condição ? valorSeVerdadeiro : valorSeFalso
+        // Se o resto da divisão por 2 for 0, o texto "Par" é escolhido, senão "Ímpar"
+        string resultado = (numero % 2 == 0) ? "Par" : "Ímpar";
+ 
+        Console.WriteLine("O número " + numero + " é " + resultado);
+ 
+        Console.WriteLine("Pressione qualquer tecla para sair...");
+        Console.ReadKey();
+    }
+}
+
+b) using System;
+ 
+// Programa que encontra o maior entre dois números usando o operador ternário
+class Program
+{
+    static void Main(string[] args)
+    {
+        int numero1, numero2;
+ 
+        Console.Write("Digite o primeiro número: ");
+        numero1 = Convert.ToInt32(Console.ReadLine());
+ 
+        Console.Write("Digite o segundo número: ");
+        numero2 = Convert.ToInt32(Console.ReadLine());
+ 
+        // Se numero1 for maior que numero2, guardamos numero1, senão guardamos numero2
+        int maior = (numero1 > numero2) ? numero1 : numero2;
+ 
+        Console.WriteLine("O maior número é: " + maior);
+ 
+        Console.WriteLine("Pressione qualquer tecla para sair...");
+        Console.ReadKey();
+    }
+}
+
+c) using System;
+using System.Collections.Generic;
+ 
+// Programa que verifica se uma lista está vazia usando o operador ternário
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Criamos uma lista de strings para simular os itens digitados pelo usuário
+        List<string> lista = new List<string>();
+ 
+        Console.Write("Quantos itens você quer adicionar na lista? ");
+        int quantidade = Convert.ToInt32(Console.ReadLine());
+ 
+        // Adicionando os itens digitados pelo usuário na lista
+        for (int i = 0; i < quantidade; i++)
+        {
+            Console.Write("Digite o item " + (i + 1) + ": ");
+            lista.Add(Console.ReadLine());
+        }
+ 
+        // lista.Count retorna a quantidade de elementos dentro da lista
+        // Se for igual a 0, a lista está vazia
+        string resultado = (lista.Count == 0) ? "A lista está vazia" : "A lista não está vazia";
+ 
+        Console.WriteLine(resultado);
+ 
+        Console.WriteLine("Pressione qualquer tecla para sair...");
+        Console.ReadKey();
+    }
+}
+
+d) using System;
+ 
+// Programa que verifica se uma string está vazia usando o operador ternário
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.Write("Digite um texto (ou apenas pressione Enter): ");
+        string texto = Console.ReadLine();
+ 
+        // string.IsNullOrEmpty() retorna true se o texto for vazio ou nulo
+        string resultado = string.IsNullOrEmpty(texto) ? "A string está vazia" : "A string não está vazia";
+ 
+        Console.WriteLine(resultado);
+ 
+        Console.WriteLine("Pressione qualquer tecla para sair...");
+        Console.ReadKey();
+    }
+}
+
+e) using System;
+ 
+// Programa que verifica se uma condição é verdadeira usando o operador ternário
+class Program
+{
+    static void Main(string[] args)
+    {
+        int idade;
+ 
+        Console.Write("Digite sua idade: ");
+        idade = Convert.ToInt32(Console.ReadLine());
+ 
+        // A condição aqui é "idade >= 18"
+        // Ela é avaliada e, dependendo do resultado (true ou false), escolhemos a mensagem
+        bool condicao = idade >= 18;
+ 
+        string resultado = condicao ? "A condição é verdadeira: você é maior de idade" : "A condição é falsa: você é menor de idade";
+ 
+        Console.WriteLine(resultado);
+ 
+        Console.WriteLine("Pressione qualquer tecla para sair...");
+        Console.ReadKey();
+    }
+}
+
+f) using System;
+ 
+// Programa que calcula o valor absoluto de um número usando o operador ternário
+// (o valor absoluto é o número sempre positivo, sem o sinal negativo)
+class Program
+{
+    static void Main(string[] args)
+    {
+        int numero;
+ 
+        Console.Write("Digite um número inteiro: ");
+        numero = Convert.ToInt32(Console.ReadLine());
+ 
+        // Se o número for menor que 0, invertemos o sinal (multiplicando por -1)
+        // Se já for maior ou igual a 0, mantemos ele como está
+        int valorAbsoluto = (numero < 0) ? -numero : numero;
+ 
+        Console.WriteLine("O valor absoluto de " + numero + " é " + valorAbsoluto);
+ 
+        Console.WriteLine("Pressione qualquer tecla para sair...");
+        Console.ReadKey();
+    }
+}
+
+g) using System;
+ 
+// Programa que verifica se um número é positivo, negativo ou zero
+// usando o operador ternário ANINHADO (um ternário dentro do outro)
+class Program
+{
+    static void Main(string[] args)
+    {
+        int numero;
+ 
+        Console.Write("Digite um número inteiro: ");
+        numero = Convert.ToInt32(Console.ReadLine());
+ 
+        // Primeiro verificamos se é igual a 0
+        // Se não for, aí sim verificamos se é maior que 0 (positivo) ou não (negativo)
+        // Repare que o segundo ternário fica no lugar do "resultadoSeFalso" do primeiro
+        string resultado = (numero == 0) ? "Zero" : (numero > 0) ? "Positivo" : "Negativo";
+ 
+        Console.WriteLine("O número " + numero + " é: " + resultado);
+ 
+        Console.WriteLine("Pressione qualquer tecla para sair...");
+        Console.ReadKey();
+    }
+}
+
+h) using System;
+ 
+// Programa que converte uma string em número, usando o operador ternário
+// para tratar o caso da conversão dar certo ou dar errado
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.Write("Digite um número: ");
+        string texto = Console.ReadLine();
+ 
+        int numero;
+ 
+        // int.TryParse tenta converter o texto para número e retorna true ou false,
+        // dependendo se a conversão deu certo. O valor convertido é guardado em "numero"
+        bool conseguiuConverter = int.TryParse(texto, out numero);
+ 
+        // Usamos o ternário para escolher a mensagem de acordo com o resultado da conversão
+        string resultado = conseguiuConverter ? "A conversão deu certo! O número é " + numero : "Não foi possível converter o texto em número";
+ 
+        Console.WriteLine(resultado);
+ 
+        Console.WriteLine("Pressione qualquer tecla para sair...");
+        Console.ReadKey();
+    }
+}
+
+i) using System;
+ 
+// Programa que verifica se um número é divisível por outro usando o operador ternário
+class Program
+{
+    static void Main(string[] args)
+    {
+        int numero1, numero2;
+ 
+        Console.Write("Digite o número que será dividido: ");
+        numero1 = Convert.ToInt32(Console.ReadLine());
+ 
+        Console.Write("Digite o número pelo qual será dividido: ");
+        numero2 = Convert.ToInt32(Console.ReadLine());
+ 
+        // Se o resto da divisão (numero1 % numero2) for 0, então numero1 é divisível por numero2
+        string resultado = (numero1 % numero2 == 0) ? numero1 + " é divisível por " + numero2 : numero1 + " NÃO é divisível por " + numero2;
+ 
+        Console.WriteLine(resultado);
+ 
+        Console.WriteLine("Pressione qualquer tecla para sair...");
+        Console.ReadKey();
+    }
+}
+
+j) using System;
+ 
+// Programa que verifica se uma variável é nula ou não, usando o operador ternário
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.Write("Digite um texto (ou pressione Enter para deixar vazio): ");
+        string texto = Console.ReadLine();
+ 
+        // Quando o usuário só pressiona Enter, o ReadLine retorna uma string vazia (""),
+        // então forçamos a variável para null se ela vier vazia, só para simular o exemplo
+        string variavel = (texto == "") ? null : texto;
+ 
+        // O operador ternário verifica se "variavel" é diferente de null
+        string resultado = (variavel != null) ? "A variável NÃO é nula. Valor: " + variavel : "A variável é nula";
+ 
+        Console.WriteLine(resultado);
+ 
+        Console.WriteLine("Pressione qualquer tecla para sair...");
+        Console.ReadKey();
+    }
+}
