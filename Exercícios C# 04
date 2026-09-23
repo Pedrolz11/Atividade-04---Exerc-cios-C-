@@ -1,0 +1,460 @@
+Lista 04 – Operadores Lógicos
+
+1- a) using System;
+ 
+// Programa que verifica se a pessoa pode dirigir:
+// precisa ter mais de 18 anos E ter carteira de motorista
+class Program
+{
+    static void Main(string[] args)
+    {
+        int idade;
+        string temCarteira;
+ 
+        Console.Write("Digite sua idade: ");
+        idade = Convert.ToInt32(Console.ReadLine());
+ 
+        Console.Write("Você possui carteira de motorista? (sim/nao): ");
+        temCarteira = Console.ReadLine();
+ 
+        // O operador && (E lógico) só é verdadeiro se as DUAS condições forem verdadeiras
+        // Usamos .ToLower() para não ter problema se o usuário digitar "Sim", "SIM", etc.
+        if (idade > 18 && temCarteira.ToLower() == "sim")
+        {
+            Console.WriteLine("Você pode dirigir");
+        }
+        else
+        {
+            Console.WriteLine("Você não pode dirigir");
+        }
+ 
+        Console.WriteLine("Pressione qualquer tecla para sair...");
+        Console.ReadKey();
+    }
+}
+
+b) using System;
+ 
+// Programa que verifica se a pessoa pode comprar um carro novo:
+// precisa QUERER comprar E ter dinheiro suficiente
+class Program
+{
+    static void Main(string[] args)
+    {
+        string querComprar;
+        string temDinheiro;
+ 
+        Console.Write("Você deseja comprar um carro novo? (sim/nao): ");
+        querComprar = Console.ReadLine();
+ 
+        Console.Write("Você tem dinheiro suficiente para isso? (sim/nao): ");
+        temDinheiro = Console.ReadLine();
+ 
+        // As duas respostas precisam ser "sim" para a condição ser verdadeira
+        if (querComprar.ToLower() == "sim" && temDinheiro.ToLower() == "sim")
+        {
+            Console.WriteLine("Parabéns, você pode comprar um carro novo!");
+        }
+        else
+        {
+            Console.WriteLine("No momento não é possível comprar o carro novo.");
+        }
+ 
+        Console.WriteLine("Pressione qualquer tecla para sair...");
+        Console.ReadKey();
+    }
+}
+
+c) using System;
+ 
+// Programa que verifica se a pessoa está qualificada para a vaga:
+// precisa ter diploma de ensino superior E ter mais de 21 anos
+class Program
+{
+    static void Main(string[] args)
+    {
+        string temDiploma;
+        int idade;
+ 
+        Console.Write("Você possui diploma de ensino superior? (sim/nao): ");
+        temDiploma = Console.ReadLine();
+ 
+        Console.Write("Digite sua idade: ");
+        idade = Convert.ToInt32(Console.ReadLine());
+ 
+        // As duas condições precisam ser verdadeiras ao mesmo tempo
+        if (temDiploma.ToLower() == "sim" && idade > 21)
+        {
+            Console.WriteLine("Parabéns, você está qualificado para a vaga!");
+        }
+        else
+        {
+            Console.WriteLine("Infelizmente você não está qualificado para a vaga.");
+        }
+ 
+        Console.WriteLine("Pressione qualquer tecla para sair...");
+        Console.ReadKey();
+    }
+}
+
+d) using System;
+ 
+// Programa que verifica se o usuário pode assistir à nova temporada:
+// precisa ser assinante E já ter assistido a série
+class Program
+{
+    static void Main(string[] args)
+    {
+        string ehAssinante;
+        string jaAssistiu;
+ 
+        Console.Write("Você é assinante do serviço de streaming? (sim/nao): ");
+        ehAssinante = Console.ReadLine();
+ 
+        Console.Write("Você já assistiu a série específica? (sim/nao): ");
+        jaAssistiu = Console.ReadLine();
+ 
+        // Só entra no if se as duas respostas forem "sim"
+        if (ehAssinante.ToLower() == "sim" && jaAssistiu.ToLower() == "sim")
+        {
+            Console.WriteLine("Ótimo, agora você pode assistir à nova temporada!");
+        }
+        else
+        {
+            Console.WriteLine("Você ainda não pode assistir à nova temporada.");
+        }
+ 
+        Console.WriteLine("Pressione qualquer tecla para sair...");
+        Console.ReadKey();
+    }
+}
+
+e) using System;
+ 
+// Programa que verifica o acesso de uma pessoa:
+// o nome precisa ter mais de 3 caracteres E a idade precisa ser maior ou igual a 18
+class Program
+{
+    static void Main(string[] args)
+    {
+        string nome;
+        int idade;
+ 
+        Console.Write("Digite seu nome: ");
+        nome = Console.ReadLine();
+ 
+        Console.Write("Digite sua idade: ");
+        idade = Convert.ToInt32(Console.ReadLine());
+ 
+        // nome.Length retorna a quantidade de caracteres da string digitada
+        if (nome.Length > 3 && idade >= 18)
+        {
+            Console.WriteLine("Acesso permitido");
+        }
+        else
+        {
+            Console.WriteLine("Acesso negado");
+        }
+ 
+        Console.WriteLine("Pressione qualquer tecla para sair...");
+        Console.ReadKey();
+    }
+}
+
+f) using System;
+ 
+// Programa que verifica se o usuário quer açúcar OU leite no café
+class Program
+{
+    static void Main(string[] args)
+    {
+        string querAcucar;
+        string querLeite;
+ 
+        Console.Write("Deseja adicionar açúcar ao café? (sim/nao): ");
+        querAcucar = Console.ReadLine();
+ 
+        Console.Write("Deseja adicionar leite ao café? (sim/nao): ");
+        querLeite = Console.ReadLine();
+ 
+        // O operador || (OU lógico) é verdadeiro se PELO MENOS UMA das condições for verdadeira
+        if (querAcucar.ToLower() == "sim" || querLeite.ToLower() == "sim")
+        {
+            Console.WriteLine("Café com adicional preparado!");
+        }
+        else
+        {
+            Console.WriteLine("Café simples preparado!");
+        }
+ 
+        Console.WriteLine("Pressione qualquer tecla para sair...");
+        Console.ReadKey();
+    }
+}
+
+g) using System;
+ 
+// Programa que verifica se um número é divisível por 3 OU por 5
+class Program
+{
+    static void Main(string[] args)
+    {
+        int numero;
+ 
+        Console.Write("Digite um número inteiro: ");
+        numero = Convert.ToInt32(Console.ReadLine());
+ 
+        // % é o operador de módulo (resto da divisão)
+        // Se o resto da divisão por 3 for 0, o número é divisível por 3
+        // Se o resto da divisão por 5 for 0, o número é divisível por 5
+        if (numero % 3 == 0 || numero % 5 == 0)
+        {
+            Console.WriteLine("O número é divisível por 3 ou por 5!");
+        }
+        else
+        {
+            Console.WriteLine("O número não é divisível por 3 nem por 5.");
+        }
+ 
+        Console.WriteLine("Pressione qualquer tecla para sair...");
+        Console.ReadKey();
+    }
+}
+
+h) using System;
+ 
+// Programa que verifica se o usuário respondeu "sim" OU "s" para comprar um produto
+class Program
+{
+    static void Main(string[] args)
+    {
+        string resposta;
+ 
+        Console.Write("Deseja comprar o produto? (sim/s/nao): ");
+        resposta = Console.ReadLine();
+ 
+        // Colocamos a resposta em minúsculo para aceitar "Sim", "SIM", "S", etc.
+        resposta = resposta.ToLower();
+ 
+        if (resposta == "sim" || resposta == "s")
+        {
+            Console.WriteLine("Obrigado pela compra!");
+        }
+        else
+        {
+            Console.WriteLine("Compra não realizada.");
+        }
+ 
+        Console.WriteLine("Pressione qualquer tecla para sair...");
+        Console.ReadKey();
+    }
+}
+
+i) using System;
+ 
+// Programa que verifica se o nome digitado é "Wilson" OU "Gloria"
+class Program
+{
+    static void Main(string[] args)
+    {
+        string nome;
+ 
+        Console.Write("Digite seu nome: ");
+        nome = Console.ReadLine();
+ 
+        // ToLower() deixa tudo minúsculo, assim "Wilson", "WILSON" e "wilson" são aceitos
+        nome = nome.ToLower();
+ 
+        if (nome == "wilson" || nome == "gloria")
+        {
+            Console.WriteLine("Olá, bem-vindo(a) de volta!");
+        }
+        else
+        {
+            Console.WriteLine("Olá! Não te reconheço, mas seja bem-vindo(a)!");
+        }
+ 
+        Console.WriteLine("Pressione qualquer tecla para sair...");
+        Console.ReadKey();
+    }
+}
+
+j) using System;
+ 
+// Programa que verifica se um número é inválido:
+// é inválido se for maior que 10 OU menor que 0
+class Program
+{
+    static void Main(string[] args)
+    {
+        int numero;
+ 
+        Console.Write("Digite um número inteiro: ");
+        numero = Convert.ToInt32(Console.ReadLine());
+ 
+        if (numero > 10 || numero < 0)
+        {
+            Console.WriteLine("Número inválido!");
+        }
+        else
+        {
+            Console.WriteLine("Número válido.");
+        }
+ 
+        Console.WriteLine("Pressione qualquer tecla para sair...");
+        Console.ReadKey();
+    }
+}
+
+k) using System;
+ 
+// Programa que pergunta se o usuário é um robô e usa o operador de negação (!)
+class Program
+{
+    static void Main(string[] args)
+    {
+        string resposta;
+        bool ehRobo;
+ 
+        Console.Write("Você é um robô? (sim/nao): ");
+        resposta = Console.ReadLine();
+ 
+        // Guardamos a resposta como um valor booleano (true ou false)
+        ehRobo = (resposta.ToLower() == "sim");
+ 
+        // O operador ! (negação) inverte o valor: se ehRobo for false, !ehRobo vira true
+        // Ou seja: "se a pessoa NÃO é um robô"
+        if (!ehRobo)
+        {
+            Console.WriteLine("Por favor, prove que você não é um robô");
+        }
+        else
+        {
+            Console.WriteLine("Acesso negado para robôs.");
+        }
+ 
+        Console.WriteLine("Pressione qualquer tecla para sair...");
+        Console.ReadKey();
+    }
+}
+
+l) using System;
+ 
+// Programa que verifica se um número NÃO é igual a zero
+class Program
+{
+    static void Main(string[] args)
+    {
+        int numero;
+ 
+        Console.Write("Digite um número: ");
+        numero = Convert.ToInt32(Console.ReadLine());
+ 
+        // != já significa "diferente de", mas aqui usamos ! junto com == para
+        // reforçar o uso do operador de negação, como pede o exercício
+        if (!(numero == 0))
+        {
+            Console.WriteLine("O número é diferente de zero");
+        }
+        else
+        {
+            Console.WriteLine("O número é igual a zero");
+        }
+ 
+        Console.WriteLine("Pressione qualquer tecla para sair...");
+        Console.ReadKey();
+    }
+}
+
+m) using System;
+ 
+// Programa que pergunta se o usuário é um membro inativo do clube
+// e usa o operador de negação (!) para verificar o caso contrário
+class Program
+{
+    static void Main(string[] args)
+    {
+        string resposta;
+        bool naoEhInativo;
+ 
+        // A pergunta já vem com a negação, como pede o exercício
+        Console.Write("Você não é um membro inativo do clube? (sim/nao): ");
+        resposta = Console.ReadLine();
+ 
+        // Guardamos true se o usuário respondeu "sim" (ou seja, confirma que NÃO é inativo)
+        naoEhInativo = (resposta.ToLower() == "sim");
+ 
+        // Usamos ! para tratar o caso da resposta ser negativa ("nao"),
+        // que significa que a pessoa É um membro inativo
+        if (!naoEhInativo)
+        {
+            Console.WriteLine("Por favor, atualize sua inscrição para continuar usufruindo dos benefícios do clube");
+        }
+        else
+        {
+            Console.WriteLine("Sua inscrição está em dia.");
+        }
+ 
+        Console.WriteLine("Pressione qualquer tecla para sair...");
+        Console.ReadKey();
+    }
+}
+
+n) using System;
+ 
+// Programa que verifica se a palavra digitada NÃO é vazia
+class Program
+{
+    static void Main(string[] args)
+    {
+        string palavra;
+ 
+        Console.Write("Digite uma palavra: ");
+        palavra = Console.ReadLine();
+ 
+        // string.IsNullOrEmpty() retorna true se a palavra estiver vazia (ou nula)
+        // O ! na frente inverte o resultado: "se NÃO estiver vazia"
+        if (!string.IsNullOrEmpty(palavra))
+        {
+            Console.WriteLine("A palavra não é vazia");
+        }
+        else
+        {
+            Console.WriteLine("Você não digitou nenhuma palavra");
+        }
+ 
+        Console.WriteLine("Pressione qualquer tecla para sair...");
+        Console.ReadKey();
+    }
+}
+
+o) using System;
+ 
+// Programa que pergunta se o usuário não deseja cancelar uma operação
+class Program
+{
+    static void Main(string[] args)
+    {
+        string resposta;
+        bool naoQuerCancelar;
+ 
+        Console.Write("Você não deseja cancelar a operação? (sim/nao): ");
+        resposta = Console.ReadLine();
+ 
+        // Guardamos true se o usuário respondeu "sim" (ou seja, confirma que NÃO quer cancelar)
+        naoQuerCancelar = (resposta.ToLower() == "sim");
+ 
+        // Se a resposta for negativa ("nao"), significa que ele QUER cancelar
+        if (!naoQuerCancelar)
+        {
+            Console.WriteLine("Por favor, confirme o cancelamento da operação");
+        }
+        else
+        {
+            Console.WriteLine("A operação continuará normalmente.");
+        }
+ 
+        Console.WriteLine("Pressione qualquer tecla para sair...");
+        Console.ReadKey();
+    }
+}
